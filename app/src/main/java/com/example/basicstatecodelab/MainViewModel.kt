@@ -28,13 +28,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun addToLast() {
-        _resident.add(Person("New person", addressCollection = AddressCollection(MutableList(4){"New address $it"})))
+        _resident.add(
+            Person(
+                "New person",
+                addressCollection = AddressCollection(MutableList(4) { "New address $it" }),
+                properties = Properties(house = List(2) { House(60.0f, 2, 2) },
+                    car = List(1) { Car(branch = "Hyundai", seat = 4) })
+            )
+        )
     }
 
-    private var _resident =  mutableStateListOf<Person>()
+    private var _resident = mutableStateListOf<Person>()
     val resident: List<Person>
         get() = _resident
+
     init {
-        _resident = List(50){ index -> Person("Thuy $index", AddressCollection(addresses = MutableList(5){"Address $it"}))}.toMutableStateList()
+        _resident = List(50) { index ->
+            Person(
+                "Thuy $index",
+                AddressCollection(addresses = MutableList(5) { "Address $it" }),
+                properties = Properties(house = List(2) { House(60.0f, 2, 2) },
+                    car = List(1) { Car(branch = "Hyundai", seat = 4) }
+                ))
+        }.toMutableStateList()
     }
 }

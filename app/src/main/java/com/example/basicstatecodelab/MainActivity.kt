@@ -80,7 +80,10 @@ class MainActivity : ComponentActivity() {
     fun DerivedStateOfScreenPreview() {
         BasicStateCodeLabTheme {
             Surface {
-                val list = List(50) { index -> Person(name = "Person $index", addressCollection = AddressCollection(MutableList(5){"Address $it"})) }
+                val list = List(50) { index -> Person(name = "Person $index",
+                    addressCollection = AddressCollection(MutableList(5){"Address $it"}),
+                    properties = Properties(house = List(2){ House(60.0f,2,2) }, car = List(1){Car(branch = "Hyundai", seat = 4)})
+                ) }
                 DerivedStateOfScreen(modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp), list = list)

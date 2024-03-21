@@ -1,0 +1,4 @@
+// Consider kotlin collections stable
+kotlin.collections.*
+//Properties data class
+com.example.basicstatecodelab.*
