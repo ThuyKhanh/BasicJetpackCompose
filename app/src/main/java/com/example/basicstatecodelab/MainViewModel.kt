@@ -30,7 +30,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun addToLast() {
         _resident.add(
             Person(
-                "New person",
+                "New person ${System.currentTimeMillis()}",
                 addressCollection = AddressCollection(MutableList(4) { "New address $it" }),
                 properties = Properties(house = List(2) { House(60.0f, 2, 2) },
                     car = List(1) { Car(branch = "Hyundai", seat = 4) })
