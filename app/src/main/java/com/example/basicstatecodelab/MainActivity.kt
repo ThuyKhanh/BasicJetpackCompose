@@ -33,79 +33,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BasicStateCodeLabTheme {
-                // A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colorScheme.background
-//                ) {
-//                    var counter by rememberSaveable {
-//                        mutableStateOf(0)
-//                    }
-//                    Column {
-//                        //WatterCounter(counter, { counter++ }, { counter = 0 })
-//                        val list = remember {
-//                            getWellnessTasks().toMutableStateList()
-//                        }
-//                        WellnessTaskList(list = list, onClosed = { task -> list.remove(task) })
-//                    }
-//                }
-                WellnessScreen()
             }
         }
     }
 }
-
-@Preview
-@Composable
-fun WellnessScreen(
-    modifier: Modifier = Modifier,
-    wellnessViewModel: WellnessViewModel = viewModel()
-) {
-    Surface {
-        WellnessTaskList(
-            list = wellnessViewModel.tasks,
-            onCheckedTask = {task,newValue-> wellnessViewModel.changeTaskChecked(task,newValue)},
-            onClosed = { task -> wellnessViewModel.remove(task) })
-    }
-}
-
-//@Composable
-//fun WatterCounter(
-//    counter: Int,
-//    onIncrement: () -> Unit,
-//    onClear: () -> Unit,
-//    modifier: Modifier = Modifier
-//) {
-//    Surface {
-//
-//        var counter by rememberSaveable {
-//            mutableStateOf(0)
-//        }
-//        Column {
-//            WatterCounter(counter, { counter++ }, { counter = 0 })
-//            val list = remember {
-//                getWellnessTasks().toMutableStateList()
-//            }
-//            WellnessTaskList(list = list, onClosed = { task -> list.remove(task) })
-//        }
-//    }
-//}
-
-//@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
-//@Composable
-//fun GreetingPreview() {
-//    BasicStateCodeLabTheme {
-//        WatterCounter(counter = 0, onIncrement = {  }, onClear = {  })
-//    }
-//}
-//
-//@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
-//@Composable
-//fun GreetingPreviewDard() {
-//    BasicStateCodeLabTheme {
-//        var counter by rememberSaveable {
-//            mutableStateOf(0)
-//        }
-//        WatterCounter(counter, { counter++ }, { counter = 0 })
-//    }
-//}
